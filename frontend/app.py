@@ -4,8 +4,8 @@ import requests
 
 st.set_page_config(page_title="Superkart Sales Prediction", layout="centered")
 
-# Read backend base URL from environment variable or default to local/Codespaces port 7860
-DEFAULT_BACKEND = "http://127.0.0.1:7860"
+# Read backend base URL from env var; default to the backend container name on the shared Docker network
+DEFAULT_BACKEND = "http://backend-container:7860"
 BACKEND_ROOT_URL = os.getenv("BACKEND_URL", DEFAULT_BACKEND).rstrip("/")
 PREDICT_ENDPOINT = f"{BACKEND_ROOT_URL}/v1/predict"
 
